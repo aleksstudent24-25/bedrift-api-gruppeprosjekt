@@ -13,6 +13,7 @@ const Enhetsregisteret = () => {
   if (error) return <p>Noe gikk galt: {error.message}</p>;
 
 
+
   return (
     kommune, stiftelsedato
   )
