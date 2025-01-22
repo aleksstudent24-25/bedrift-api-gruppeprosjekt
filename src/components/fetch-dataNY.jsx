@@ -1,19 +1,22 @@
-import useSWR from "swr";
+import useSWR from 'swr';
 
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-export default function useFetch() {
-  const {
-    data: Stiftelsesdato, navn,
-    error,
-    isValidating,
-  } = useSWR("https://data.brreg.no/enhetsregisteret/api/enheter?kommunenummer=5061&size=10000&fraStiftelsesdato=2022-01-01&tilStiftelsesdato=2022-12-31", fetcher);
+const Enhetsregisteret = () => {
+  const apiUrl =
+    'https://data.brreg.no/enhetsregisteret/api/enheter?kommunenummer=5061&size=10000&fraStiftelsesdato=2022-01-01&tilStiftelsesdato=2022-12-31';
 
-  if (error) return <div className="failed">failed to load</div>;
-  if (isValidating) return <div className="Loading">Loading...</div>;
+  
+  const { kommune, stiftelsedato, error, isLoading } = useSWR(apiUrl, fetcher);
+
+  if (isLoading) return <p>Laster data...</p>;
+  if (error) return <p>Noe gikk galt: {error.message}</p>;
+
 
   return (
-    Stiftelsesdato, navn
+    kommune, stiftelsedato
   )
-}
+};
+
+export default Enhetsregisteret;
 
