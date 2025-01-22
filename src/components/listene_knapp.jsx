@@ -1,8 +1,8 @@
-import kommuner from "../Data/kommuner";
-import stiftelsedato from "./fetch-dataNY";
+// import kommuner from "../Data/kommuner";
+import { kommune , stiftelseYear } from "./fetch-dataNY";
 
 const KommuneListe = () => {
-  if (!Array.isArray(kommuner) || !Array.isArray(stiftelsedato)) {
+  if (!Array.isArray(kommune) || !Array.isArray(stiftelseYear)) {
     console.error("Feil: 'kommuner' eller 'stiftelsedato' er ikke en gyldig liste.");
     return <div>Dataene kunne ikke lastes inn.</div>;
   }
@@ -13,7 +13,7 @@ const KommuneListe = () => {
         <option value="" disabled>
           Velg en kommune
         </option>
-        {kommuner.map((kommune, index) => (
+        {kommune.map((kommune, index) => (
           <option key={index} value={kommune}>
             {kommune}
           </option>
@@ -22,16 +22,16 @@ const KommuneListe = () => {
 
       <select className="years" defaultValue="">
         <option value="" disabled>
-          Velg et år
+          Velg et årstall
         </option>
-        {stiftelsedato.map((dato, index) => (
-          <option key={index} value={dato}>
-            {dato}
+        {stiftelseYear.map((stiftelseYear, index) => (
+          <option key={index} value={stiftelseYear}>
+            {stiftelseYear}
           </option>
         ))}
       </select>
 
-      <button type="submit"> Search</button>
+      <button type="submit"> Search </button>
     </div>
   );
 };

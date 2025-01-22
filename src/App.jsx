@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.module.css";
 import KommuneListe from "./components/listene_knapp";
 
 function App() {
