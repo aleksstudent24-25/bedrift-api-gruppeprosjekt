@@ -2,7 +2,6 @@ import kommuner from "../Data/kommuner";
 import stiftelsedato from "./fetch-dataNY";
 
 const KommuneListe = () => {
-  // Sjekk om dataene finnes og er arrays
   if (!Array.isArray(kommuner) || !Array.isArray(stiftelsedato)) {
     console.error("Feil: 'kommuner' eller 'stiftelsedato' er ikke en gyldig liste.");
     return <div>Dataene kunne ikke lastes inn.</div>;
@@ -32,7 +31,7 @@ const KommuneListe = () => {
         ))}
       </select>
 
-      <button>Search</button>
+      <button type="submit"> Search</button>
     </div>
   );
 };
