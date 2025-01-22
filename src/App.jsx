@@ -5,7 +5,6 @@ import fetchData from "./components/datafetch";
 import "./App.css";
 
 function App() {
-  return fetchData();
 }
 
 export default App;
