@@ -5,9 +5,7 @@ import RullNed from "./components/listene_knapp";
 
 
 function App() {
-  return (
-<RullNed />
-  )
+  return <ShowData></ShowData>;
 }
 
 export default App;
