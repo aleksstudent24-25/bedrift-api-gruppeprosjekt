@@ -1,7 +1,11 @@
 import raw from "../components/fetch-dataNY";
 
-export const informasjon = raw.classificationItems.map(
-  (kommune) => kommune.kommune
-);
+export function Informasjon() {
+  const kommuner = raw.classificationItems.map((kommune) => kommune.kommune);
+  const stiftelsesdato = raw.classificationItems.map(
+    (stiftelsesdato) => stiftelsesdato.stiftelsesår
+  );
 
-export default kommuner;
+  return { kommuner, stiftelsesdato };
+}
+export default Informasjon;

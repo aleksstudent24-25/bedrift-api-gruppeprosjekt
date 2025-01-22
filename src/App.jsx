@@ -1,8 +1,13 @@
-import "./App.css";
-import ShowData from "./components/displayData";
+
+import RullNed from "./components/listene_knapp";
+
+//import ShowData from "./components/displayData";
+
 
 function App() {
-  return <ShowData></ShowData>;
+  return (
+<RullNed />
+  )
 }
 
 export default App;
