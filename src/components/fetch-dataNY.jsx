@@ -7,10 +7,8 @@ const fetcher = async (url) => {
   return response.data;
 };
 
-function useEnhetsregisteret(kommune, stiftelseYear) {
-  const apiUrl =
-    `https://data.brreg.no/enhetsregisteret/api/enheter?forretningsadresse.kommune=${kommune}&size=10000&fraStiftelsesdato=${stiftelseYear}-01-01&tilStiftelsesdato=${stiftelseYear}-12-31`;
-    // `https://data.brreg.no/enhetsregisteret/api/enheter?forretningsadresse.kommune=Oslo&size=10000&fraStiftelsesdato=2025-01-01&tilStiftelsesdato=2025-12-31`;
+function useEnhetsregisteret(values) {
+  const apiUrl = `https://data.brreg.no/enhetsregisteret/api/enheter?forretningsadresse.kommune=${values.kommune}&size=10000&fraStiftelsesdato=${values.year}-01-01&tilStiftelsesdato=${values.year}-12-31`;
 
   const { data, error, isLoading } = useSWR(apiUrl, fetcher);
 

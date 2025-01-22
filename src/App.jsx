@@ -1,11 +1,11 @@
-
 import RullNed from "./components/listene_knapp";
 
-//import ShowData from "./components/displayData";
-
-
 function App() {
-  return <ShowData></ShowData>;
+  return (
+    <>
+      <RullNed></RullNed>
+    </>
+  );
 }
 
 export default App;

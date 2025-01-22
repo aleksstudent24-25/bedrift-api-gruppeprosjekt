@@ -1,7 +1,7 @@
 import useEnhetsregisteret from "./fetch-dataNY";
 
-export default function ShowData() {
-  const { data, error, isLoading } = useEnhetsregisteret();
+export default function ShowData(values) {
+  const { data, error, isLoading } = useEnhetsregisteret(values);
   // console.log(data);
   return (
     <ul>
