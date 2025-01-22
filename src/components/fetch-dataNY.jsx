@@ -18,7 +18,7 @@ function useEnhetsregisteret(kommune, stiftelseYear) {
   // if (isLoading) return <p>Laster data...</p>;
   // if (error) return <p>Noe gikk galt: {error.message}</p>;
 
-  // return data._embedded.enheter;
+  // return data?._embedded.enheter;
 }
 
 export default useEnhetsregisteret;
