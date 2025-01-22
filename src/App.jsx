@@ -5,7 +5,7 @@ import fetchData from "./components/datafetch";
 import "./App.css";
 
 function App() {
-  return <>Test</>;
+  return fetchData();
 }
 
 export default App;
