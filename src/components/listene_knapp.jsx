@@ -1,20 +1,25 @@
 import kommuner from "../Data/kommuner";
-import Stiftelsedato from "../components/fetch-dataNY";
+import Stiftelsedato from "./fetch-dataNY";
 
-const KommuneListe = () => {
+export const KommuneListe = () => {
+
+
   return (
+    <div className="Listene">
     
     <select className="kommuner">
       {kommuner.map((kommune) => (
         <option key={kommune}>{kommune}</option>
       ))}
     </select>
-    <select className="dato">
+    <select className="years">
       {Stiftelsedato.map((Stiftelsedato) => (
-        <option key={Stiftelsedato}>{Stiftelsedato}</option>
-      ))}
-    </select>
-  );
-};
+        <option key={Stiftelsedato}>{Stiftelsedato}</option>))}
+        </select>
 
-export default KommuneListe;
+        <button>Search</button>
+        </div>
+  )
+}
+
+
