@@ -1,14 +1,11 @@
 import "./App.module.css";
-import KommuneListe from "./components/listene_knapp";
+import "./App.css";
+import ShowData from "./components/displayData";
 
 function App() {
-
-  
-  return (
-    <KommuneListe />
-
+  return <ShowData>
     
-  )
+  </ShowData>;
 }
 
 export default App;
