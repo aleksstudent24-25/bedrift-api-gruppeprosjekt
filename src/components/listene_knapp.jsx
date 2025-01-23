@@ -15,6 +15,7 @@ export default function RullNed() {
 
   return (
     <>
+      <h2 class="title"> Bedrift Søker </h2>
       <div className="search">
         <select name="kommune" className="kommuner" onChange={handleChange}>
           {kommuner.map((kommune) => (
