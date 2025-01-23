@@ -9,6 +9,7 @@ export default function RullNed() {
     kommune: "Oslo",
     year: "2016",
   });
+  return <>
       <h2 class="title"> Bedrift Søker </h2>
        <KommuneDropdown />
         <input
@@ -20,7 +21,6 @@ export default function RullNed() {
           value={allValues.year}
           onChange={handleChange}
         />
-      </div>
       <div className="result">
         <ShowData kommune={allValues.kommune} year={allValues.year}></ShowData>
       </div>
