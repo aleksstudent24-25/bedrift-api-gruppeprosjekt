@@ -1,6 +1,5 @@
 import KommuneDropdown from "../data/fetch_kommuner";
 import { useState } from "react";
-import kommuner from "../Data/kommuner";
 import ShowData from "./displayData";
 
 export default function RullNed() {
@@ -16,7 +15,7 @@ export default function RullNed() {
 
   return (
     <>
-      <h2 class="title"> Bedrift Søker </h2>
+      <h2 className="title"> Bedrift Søker </h2>
       <KommuneDropdown />
       <input
         name="year"
