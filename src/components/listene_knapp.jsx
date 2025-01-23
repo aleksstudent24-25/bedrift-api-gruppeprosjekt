@@ -16,7 +16,7 @@ export default function RullNed() {
   return (
     <>
       <h2 className="title"> Bedrift Søker </h2>
-      <KommuneDropdown />
+      <KommuneDropdown handleChange={handleChange} />
       <input
         name="year"
         type="number"

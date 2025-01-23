@@ -3,7 +3,7 @@ import axiosInstance from "./axiosInstance";
 
 const fetcher = (url) => axiosInstance.get(url).then((res) => res.data);
 
-const KommuneDropdown = () => {
+const KommuneDropdown = ({ handleChange }) => {
   const { data, error, isLoading } = useSWR("?size=1000", fetcher);
 
   if (isLoading) return <p>Laster...</p>;
