@@ -30,7 +30,6 @@ export default function RullNed() {
           value={allValues.year}
           onChange={handleChange}
         />
-        <button>Search</button>
       </div>
       <div className="result">
         <ShowData kommune={allValues.kommune} year={allValues.year}></ShowData>
