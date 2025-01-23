@@ -1,8 +1,8 @@
 import useEnhetsregisteret from "./fetch-dataNY";
 
-export default function ShowData() {
-  const { data, error, isLoading } = useEnhetsregisteret();
-  console.log(data);
+export default function ShowData(values) {
+  const { data, error, isLoading } = useEnhetsregisteret(values);
+  // console.log(data);
   return (
     <ul>
       {isLoading ? (
@@ -10,7 +10,11 @@ export default function ShowData() {
       ) : error ? (
         <p>Error</p>
       ) : (
-        data.map((x) => <div>{x.navn}</div>)
+        data.map((x) => (
+          <div key={x.organisasjonsnummer}>
+            {x.organisasjonsnummer}: {x.navn}, {x.stiftelsesdato}.
+          </div>
+        ))
       )}
     </ul>
   );
