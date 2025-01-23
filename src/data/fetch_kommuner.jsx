@@ -1,7 +1,6 @@
 import useSWR from "swr";
 import axiosInstance from "./axiosInstance";
 
-
 const fetcher = (url) => axiosInstance.get(url).then((res) => res.data);
 
 const KommuneDropdown = () => {
@@ -14,24 +13,24 @@ const KommuneDropdown = () => {
 
   const kommuner = Array.from(
     new Set(
-      enheter.flatMap((enhet) => [
-        enhet?.postadresse?.kommune,
-        enhet?.forretningsadresse?.kommune,
-      ]).filter(Boolean) 
+      enheter
+        .flatMap((enhet) => [
+          enhet?.postadresse?.kommune,
+          enhet?.forretningsadresse?.kommune,
+        ])
+        .filter(Boolean)
     )
-  ).sort(); 
+  ).sort();
 
   return (
-    <div>
-      <select>
-        <option value="">Velg kommune</option>
-        {kommuner.map((kommune, index) => (
-          <option key={index} value={kommune}>
-            {kommune}
-          </option>
-        ))}
-      </select>
-    </div>
+    <select name="kommune" onChange={handleChange}>
+      <option value="">Velg kommune</option>
+      {kommuner.map((kommune, index) => (
+        <option key={index} value={kommune}>
+          {kommune}
+        </option>
+      ))}
+    </select>
   );
 };
 
