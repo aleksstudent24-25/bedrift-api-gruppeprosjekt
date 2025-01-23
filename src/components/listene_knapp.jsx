@@ -1,3 +1,5 @@
+
+import KommuneDropdown from "../data/fetch_kommuner";
 import { useState } from "react";
 import kommuner from "../Data/kommuner";
 import ShowData from "./displayData";
@@ -7,21 +9,8 @@ export default function RullNed() {
     kommune: "Oslo",
     year: "2016",
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...allValues, [name]: value });
-  };
-
-  return (
-    <>
       <h2 class="title"> Bedrift Søker </h2>
-      <div className="search">
-        <select name="kommune" className="kommuner" onChange={handleChange}>
-          {kommuner.map((kommune) => (
-            <option key={kommune}>{kommune}</option>
-          ))}
-        </select>
+       <KommuneDropdown />
         <input
           name="year"
           type="number"
