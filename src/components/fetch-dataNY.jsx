@@ -13,7 +13,7 @@ function useEnhetsregisteret(values) {
   apiUrl.searchParams.set("forretningsadresse.kommune", kommune);
   apiUrl.searchParams.set("size", "10000");
 
-  if (year && year !== "----") {
+  if (year && year !== "----" && year <= 2025 && year >= 1900) {
     apiUrl.searchParams.set("fraStiftelsesdato", `${year}-01-01`);
     apiUrl.searchParams.set("tilStiftelsesdato", `${year}-12-31`);
   }
