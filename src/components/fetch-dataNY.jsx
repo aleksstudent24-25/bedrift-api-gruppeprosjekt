@@ -9,6 +9,7 @@ const fetcher = async (url) => {
 
 function useEnhetsregisteret(values) {
   const apiUrl = `https://data.brreg.no/enhetsregisteret/api/enheter?forretningsadresse.kommune=${values.kommune}&size=10000&fraStiftelsesdato=${values.year}-01-01&tilStiftelsesdato=${values.year}-12-31`;
+  // https://data.brreg.no/enhetsregisteret/api/enheter?forretningsadresse.kommune=Oslo&size=10000&fraStiftelsesdato=2022-01-01&tilStiftelsesdato=2022-12-31
 
   const { data, error, isLoading } = useSWR(apiUrl, fetcher);
 

@@ -1,0 +1,63 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Dim the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Modal Title */
+.modal-title {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Modal Close Button */
+.modal-close {
+  margin-top: 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #0056b3;
+}
+
+/* Open Modal Button */
+.open-modal-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.open-modal-button:hover {
+  background: #0056b3;
+}
+
+.businessEntry:hover {
+  cursor: pointer;
+}
