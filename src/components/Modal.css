@@ -11,7 +11,6 @@
   z-index: 1000;
 }
 
-/* Modal Content */
 .modal-content {
   color: black;
   background: white;
@@ -23,14 +22,12 @@
   text-align: center;
 }
 
-/* Modal Title */
 .modal-title {
   margin: 0 0 10px;
   font-size: 20px;
   font-weight: bold;
 }
 
-/* Modal Close Button */
 .modal-close {
   margin-top: 20px;
   background: #676a6e;
@@ -43,18 +40,4 @@
 
 .modal-close:hover {
   background: #3d3e3f;
-}
-
-/* Open Modal Button */
-.open-modal-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.open-modal-button:hover {
-  background: #0056b3;
 }
