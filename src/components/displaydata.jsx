@@ -10,13 +10,13 @@ export default function ShowData(values) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const openModal = (x) => {
-    setModalData(x); // Set the data for the modal
-    setModalOpen(true); // Open the modal
+    setModalData(x);
+    setModalOpen(true);
   };
 
   const closeModal = () => {
-    setModalOpen(false); // Close the modal
-    setModalData(null); // Clear the modal data
+    setModalOpen(false);
+    setModalData(null);
   };
 
   const filteredData =
@@ -29,21 +29,23 @@ export default function ShowData(values) {
   return (
     <>
       <div>
-        <input
-          type="text"
-          placeholder="Søk etter bedrift (navn eller org.nr)"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Søk etter bedrift (navn eller org.nr)"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
 
-        <ul>
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : error ? (
-            <p>Error</p>
-          ) : filteredData.length > 0 ? (
-            filteredData.map((x) => (
-              <div>
+        <div className="businessListArea">
+          <ul className="businessList">
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : error ? (
+              <p>Error</p>
+            ) : filteredData.length > 0 ? (
+              filteredData.map((x) => (
                 <div
                   className="businessEntry"
                   onClick={() => openModal(x)}
@@ -55,17 +57,20 @@ export default function ShowData(values) {
                   {x.organisasjonsnummer}: {x.navn}, {x.stiftelsesdato}.
                   {x.konkurs && " (Konkurs)"}
                 </div>
-              </div>
-            ))
-          ) : (
-            <p>Ingen resultater funnet.</p>
-          )}
-        </ul>
+              ))
+            ) : (
+              <p>Ingen resultater funnet.</p>
+            )}
+          </ul>
+        </div>
       </div>
 
       {isModalOpen && modalData && (
-        <DisplayModal isOpen={isModalOpen} onClose={closeModal} businessData={modalData}>
-        </DisplayModal>
+        <DisplayModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          businessData={modalData}
+        ></DisplayModal>
       )}
     </>
   );
