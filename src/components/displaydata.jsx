@@ -38,29 +38,31 @@ export default function ShowData(values) {
           />
         </div>
 
-        <ul>
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : error ? (
-            <p>Error</p>
-          ) : filteredData.length > 0 ? (
-            filteredData.map((x) => (
-              <div
-                className="businessEntry"
-                onClick={() => openModal(x)}
-                key={x.organisasjonsnummer}
-                style={{
-                  color: x.konkurs ? "red" : "white",
-                }}
-              >
-                {x.organisasjonsnummer}: {x.navn}, {x.stiftelsesdato}.
-                {x.konkurs && " (Konkurs)"}
-              </div>
-            ))
-          ) : (
-            <p>Ingen resultater funnet.</p>
-          )}
-        </ul>
+        <div className="businessListArea">
+          <ul className="businessList">
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : error ? (
+              <p>Error</p>
+            ) : filteredData.length > 0 ? (
+              filteredData.map((x) => (
+                <div
+                  className="businessEntry"
+                  onClick={() => openModal(x)}
+                  key={x.organisasjonsnummer}
+                  style={{
+                    color: x.konkurs ? "red" : "white",
+                  }}
+                >
+                  {x.organisasjonsnummer}: {x.navn}, {x.stiftelsesdato}.
+                  {x.konkurs && " (Konkurs)"}
+                </div>
+              ))
+            ) : (
+              <p>Ingen resultater funnet.</p>
+            )}
+          </ul>
+        </div>
       </div>
 
       {isModalOpen && modalData && (
