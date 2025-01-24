@@ -5,27 +5,49 @@ import ShowData from "./displayData";
 export default function RullNed() {
   const [allValues, setValues] = useState({
     kommune: "Oslo",
-    year: "2016",
+    year: "----", 
   });
+
+  const [errorMessage, setErrorMessage] = useState(""); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setValues({ ...allValues, [name]: value });
+
+    if (name === "year") {
+      if (value === "" || /^\d{0,4}$/.test(value)) {
+        const currentYear = new Date().getFullYear();
+
+        if (value === "" || (value.length === 4 && value >= 1900 && value <= currentYear)) {
+          setErrorMessage(""); 
+        } else if (value.length === 4) {
+          setErrorMessage(`Vennligst skriv inn et gyldig årstall mellom 1900 og ${currentYear}.`);
+        }
+
+        setValues({ ...allValues, [name]: value === "" ? "----" : value });
+      }
+    } else {
+      setValues({ ...allValues, [name]: value }); 
+    }
   };
 
   return (
     <>
-      <h2 className="title"> Bedrift Søker </h2>
+      <h2 className="title">Bedrift Søker</h2>
+      
       <KommuneDropdown handleChange={handleChange} />
-      <input
-        name="year"
-        type="number"
-        min="1900"
-        max="2025"
-        step="1"
-        value={allValues.year}
-        onChange={handleChange}
-      />
+
+      <div>
+        <input
+          type="number"
+          id="year"
+          name="year"
+          value={allValues.year === "----" ? "" : allValues.year} 
+          onChange={handleChange}
+          placeholder="Skriv inn årstall"
+        />
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+      </div>
+
       <div className="result">
         <ShowData kommune={allValues.kommune} year={allValues.year}></ShowData>
       </div>
