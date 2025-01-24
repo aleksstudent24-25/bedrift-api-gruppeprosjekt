@@ -10,13 +10,13 @@ export default function ShowData(values) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const openModal = (x) => {
-    setModalData(x); // Set the data for the modal
-    setModalOpen(true); // Open the modal
+    setModalData(x); 
+    setModalOpen(true); 
   };
 
   const closeModal = () => {
-    setModalOpen(false); // Close the modal
-    setModalData(null); // Clear the modal data
+    setModalOpen(false); 
+    setModalData(null); 
   };
 
   const filteredData =
@@ -64,8 +64,11 @@ export default function ShowData(values) {
       </div>
 
       {isModalOpen && modalData && (
-        <DisplayModal isOpen={isModalOpen} onClose={closeModal} businessData={modalData}>
-        </DisplayModal>
+        <DisplayModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          businessData={modalData}
+        ></DisplayModal>
       )}
     </>
   );
