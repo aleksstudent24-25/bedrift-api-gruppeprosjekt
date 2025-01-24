@@ -64,12 +64,7 @@ export default function ShowData(values) {
       </div>
 
       {isModalOpen && modalData && (
-        <DisplayModal isOpen={isModalOpen} onClose={closeModal}>
-          <h3>Details for {modalData.navn}</h3>
-          <p>Organisasjonsnummer: {modalData.organisasjonsnummer}</p>
-          <p>Stiftelsesdato: {modalData.stiftelsesdato}</p>
-          <p>Status: {modalData.konkurs ? "Konkurs" : "Ikke konkurs"}</p>
-          <button onClick={closeModal}>Close</button>
+        <DisplayModal isOpen={isModalOpen} onClose={closeModal} businessData={modalData}>
         </DisplayModal>
       )}
     </>

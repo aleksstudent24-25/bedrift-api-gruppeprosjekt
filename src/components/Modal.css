@@ -13,6 +13,7 @@
 
 /* Modal Content */
 .modal-content {
+  color: black;
   background: white;
   padding: 20px;
   border-radius: 8px;
@@ -32,7 +33,7 @@
 /* Modal Close Button */
 .modal-close {
   margin-top: 20px;
-  background: #007bff;
+  background: #676a6e;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -41,7 +42,7 @@
 }
 
 .modal-close:hover {
-  background: #0056b3;
+  background: #3d3e3f;
 }
 
 /* Open Modal Button */
@@ -59,5 +60,6 @@
 }
 
 .businessEntry:hover {
+  background-color: #4e647a;
   cursor: pointer;
 }
