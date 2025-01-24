@@ -10,13 +10,13 @@ export default function ShowData(values) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const openModal = (x) => {
-    setModalData(x); 
-    setModalOpen(true); 
+    setModalData(x);
+    setModalOpen(true);
   };
 
   const closeModal = () => {
-    setModalOpen(false); 
-    setModalData(null); 
+    setModalOpen(false);
+    setModalData(null);
   };
 
   const filteredData =
@@ -29,12 +29,14 @@ export default function ShowData(values) {
   return (
     <>
       <div>
-        <input
-          type="text"
-          placeholder="Søk etter bedrift (navn eller org.nr)"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Søk etter bedrift (navn eller org.nr)"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
 
         <ul>
           {isLoading ? (
@@ -43,18 +45,16 @@ export default function ShowData(values) {
             <p>Error</p>
           ) : filteredData.length > 0 ? (
             filteredData.map((x) => (
-              <div>
-                <div
-                  className="businessEntry"
-                  onClick={() => openModal(x)}
-                  key={x.organisasjonsnummer}
-                  style={{
-                    color: x.konkurs ? "red" : "white",
-                  }}
-                >
-                  {x.organisasjonsnummer}: {x.navn}, {x.stiftelsesdato}.
-                  {x.konkurs && " (Konkurs)"}
-                </div>
+              <div
+                className="businessEntry"
+                onClick={() => openModal(x)}
+                key={x.organisasjonsnummer}
+                style={{
+                  color: x.konkurs ? "red" : "white",
+                }}
+              >
+                {x.organisasjonsnummer}: {x.navn}, {x.stiftelsesdato}.
+                {x.konkurs && " (Konkurs)"}
               </div>
             ))
           ) : (
