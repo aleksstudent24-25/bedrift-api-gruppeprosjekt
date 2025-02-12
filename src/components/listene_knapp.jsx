@@ -1,6 +1,6 @@
 import KommuneDropdown from "../data/fetch_kommuner";
 import { useState } from "react";
-import ShowData from "./displayData";
+import ShowData from "./displaydata";
 
 export default function RullNed() {
   const [allValues, setValues] = useState({
